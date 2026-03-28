@@ -1,18 +1,16 @@
 package ru.itis.fisd_cw.service;
 
 
-import io.micrometer.common.util.StringUtils;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.itis.fisd_cw.data.dto.NoteDto;
 import ru.itis.fisd_cw.data.entity.NoteEntity;
 import ru.itis.fisd_cw.repository.NoteRepository;
+import ru.itis.fisd_cw.exception.NotFoundException;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -42,7 +40,8 @@ public class NoteService {
 
     //GET 1
     public NoteEntity getById(Long id) {
-        return noteRepository.findByIdAndDeletedAtIsNull(id);
+        return noteRepository.findByIdAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new NotFoundException("Note not found with id: " + id));
     }
 
 
@@ -54,7 +53,8 @@ public class NoteService {
     //UPDATE
     @Transactional
     public NoteEntity updateNote(Long id, NoteDto dto) {
-        NoteEntity noteEntity = noteRepository.findByIdAndDeletedAtIsNull(id);
+        NoteEntity noteEntity = noteRepository.findByIdAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new NotFoundException("Note not found with id: " + id));
 
         noteEntity.setTitle(dto.getTitle());
         noteEntity.setContent(dto.getContent());
@@ -65,7 +65,8 @@ public class NoteService {
     //DELETE
     @Transactional
     public void deleteNote(Long id) {
-        NoteEntity noteEntity = noteRepository.findByIdAndDeletedAtIsNull(id);
+        NoteEntity noteEntity = noteRepository.findByIdAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new NotFoundException("Note not found with id: " + id));
 
         noteEntity.delete();
 

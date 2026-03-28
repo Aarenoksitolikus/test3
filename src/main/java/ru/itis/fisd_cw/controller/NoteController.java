@@ -4,6 +4,9 @@ package ru.itis.fisd_cw.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Not;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoteController {
     private final NoteService noteService;
+
+
+    @GetMapping
+    public ResponseEntity<Page<NoteEntity>> getAll(@PageableDefault(size = 10) Pageable pageable) {
+        return ResponseEntity.ok(noteService.getAllNotes(pageable));
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<NoteEntity> getById(@PathVariable Long id) {

@@ -15,7 +15,7 @@ public interface NoteRepository extends JpaRepository<NoteEntity, Long> {
     List<NoteEntity> findByTitleContainingIgnoreCaseAndDeletedAtIsNull(String title);
     List<NoteEntity> findByContentContainingIgnoreCaseAndDeletedAtIsNull(String content);
 
-    NoteEntity findByIdAndDeletedAtIsNull(Long id);
+    Optional<NoteEntity> findByIdAndDeletedAtIsNull(Long id);
 
     Page<NoteEntity> findAllByDeletedAtIsNull(Pageable pageable);
 
