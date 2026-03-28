@@ -1,4 +1,4 @@
-package ru.itis.fisd_cw.entity;
+package ru.itis.fisd_cw.data.entity;
 
 
 import jakarta.annotation.PreDestroy;
