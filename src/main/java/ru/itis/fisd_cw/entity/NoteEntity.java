@@ -1,6 +1,7 @@
 package ru.itis.fisd_cw.entity;
 
 
+import jakarta.annotation.PreDestroy;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,11 +15,11 @@ public class NoteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     String title;
 
 
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     String content;
 
 
@@ -30,5 +31,19 @@ public class NoteEntity {
 
     @Column(name = "deletedAt")
     LocalDateTime deletedAt;
+
+    @PreUpdate
+    protected void preUpdate() {
+        setUpdatedAt(LocalDateTime.now());
+    }
+
+    protected void preDelete() {
+        setDeletedAt(LocalDateTime.now());
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        setCreationAt(LocalDateTime.now());
+    }
 
 }

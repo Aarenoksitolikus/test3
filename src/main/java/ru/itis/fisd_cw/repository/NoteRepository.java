@@ -10,35 +10,5 @@ import ru.itis.fisd_cw.entity.NoteEntity;
 
 @Repository
 public class NoteRepository {
-    @PersistenceContext
-    private EntityManager entityManager;
 
-    @Transactional
-    public void saveNote(NoteEntity noteEntity) {
-        if (noteEntity.getId() == null) {
-            entityManager.persist(noteEntity);
-        } else {
-            entityManager.merge(noteEntity);
-        }
-    }
-
-    //FIRST GET
-    public NoteEntity findByID(Long id) {
-        return entityManager.find(NoteEntity.class, id);
-    }
-
-    public NoteEntity findAll() {
-        return entityManager.find()
-    }
-
-
-    //DELETE
-    @Transactional
-    public void deleteById(Long id) {
-        NoteEntity noteEntity = findByID(id);
-
-        if (noteEntity != null) {
-            entityManager.remove(noteEntity);
-        }
-    }
 }
