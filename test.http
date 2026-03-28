@@ -1,0 +1,28 @@
+POST http://localhost:8080/notes
+Content-Type: application/json
+
+{
+"title": "test",
+"content": "helo"
+}
+
+###
+PUT http://localhost:8080/notes/1
+Content-Type: application/json
+
+{
+  "title": "upt",
+  "content": "new"
+}
+
+###
+DELETE http://localhost:8080/notes/1
+
+###
+GET http://localhost:8080/notes/search/title?title=upt
+
+###
+GET http://localhost:8080/notes/search//content?content=new
+
+###
+GET http://localhost:8080/notes/999
