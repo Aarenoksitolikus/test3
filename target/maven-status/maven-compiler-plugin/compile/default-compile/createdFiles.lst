@@ -1,0 +1,8 @@
+ru/kpfu/itis/controller/NoteController.class
+ru/kpfu/itis/exception/GlobalExceptionHandler.class
+ru/kpfu/itis/entity/NoteEntity.class
+ru/kpfu/itis/dto/NoteDto.class
+ru/kpfu/itis/NoteCrudApplication.class
+ru/kpfu/itis/exception/NoteNotFoundException.class
+ru/kpfu/itis/repository/NoteRepository.class
+ru/kpfu/itis/service/NoteService.class

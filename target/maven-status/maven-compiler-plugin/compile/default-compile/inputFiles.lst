@@ -1,0 +1,8 @@
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/entity/NoteEntity.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/repository/NoteRepository.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/NoteCrudApplication.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/exception/NoteNotFoundException.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/dto/NoteDto.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/exception/GlobalExceptionHandler.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/controller/NoteController.java
+/Users/azamatzakirov/IdeaProjects/test_3_oris/src/main/java/ru/kpfu/itis/service/NoteService.java
