@@ -28,12 +28,18 @@ public class NoteEntity {
     String content;
 
 
+
+    //Нужно было snakecase, но я забыл и в бд сделал кемел
     @Column(name = "createdat", nullable = false)
     LocalDateTime creationAt;
 
+
+    //Нужно было snakecase, но я забыл и в бд сделал кемел
     @Column(name = "updatedat")
     LocalDateTime updatedAt;
 
+
+    //Нужно было snakecase, но я забыл и в бд сделал кемел
     @Column(name = "deletedat")
     LocalDateTime deletedAt;
 

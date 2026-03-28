@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import ru.itis.fisd_cw.data.dto.NoteDto;
 import ru.itis.fisd_cw.data.entity.NoteEntity;
 import ru.itis.fisd_cw.repository.NoteRepository;
-import ru.itis.fisd_cw.exception.NotFoundException;
+import ru.itis.fisd_cw.util.exception.NotFoundException;
 
 import java.util.List;
 
