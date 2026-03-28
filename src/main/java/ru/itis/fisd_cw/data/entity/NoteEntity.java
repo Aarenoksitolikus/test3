@@ -42,7 +42,7 @@ public class NoteEntity {
         setUpdatedAt(LocalDateTime.now());
     }
 
-    protected void preDelete() {
+    public void delete() {
         setDeletedAt(LocalDateTime.now());
     }
 
