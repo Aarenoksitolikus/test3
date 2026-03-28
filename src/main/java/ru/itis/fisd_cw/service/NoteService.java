@@ -2,6 +2,7 @@ package ru.itis.fisd_cw.service;
 
 
 import io.micrometer.common.util.StringUtils;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +18,17 @@ public class NoteService {
     @Autowired
     private NoteRepository noteRepository;
 
-
-    public NoteEntity getByTitle(String title) {
-        return (NoteEntity) noteRepository.findByTitleContainingIgnoreCaseAndDeletedAtIsNull(title);
+    //GET TITLE
+    public List<NoteEntity> getByTitle(String title) {
+        return noteRepository.findByTitleContainingIgnoreCaseAndDeletedAtIsNull(title);
     }
 
-    public NoteEntity getByContent(String content) {
-        return (NoteEntity) noteRepository.findByContentContainingIgnoreCaseAndDeletedAtIsNull(content);
+    //GET CONTENT
+    public List<NoteEntity> getByContent(String content) {
+        return noteRepository.findByContentContainingIgnoreCaseAndDeletedAtIsNull(content);
     }
 
+    //CREATE
     public NoteEntity createNote(NoteDto dto) {
         NoteEntity noteEntity = NoteEntity.builder()
                 .title(dto.getTitle())
@@ -35,5 +38,21 @@ public class NoteService {
         return noteRepository.save(noteEntity);
     }
 
+    //GET 1
+    public NoteEntity getById(Long id) {
+        return noteRepository.findByIdAndDeletedAtIsNull(id);
+    }
+
+
+    //UPDATE
+    @Transactional
+    public NoteEntity updateNote(Long id, NoteDto dto) {
+        NoteEntity noteEntity = noteRepository.findByIdAndDeletedAtIsNull(id);
+
+        noteEntity.setTitle(dto.getTitle());
+        noteEntity.setContent(dto.getContent());
+
+        return noteEntity;
+    }
 
 }
