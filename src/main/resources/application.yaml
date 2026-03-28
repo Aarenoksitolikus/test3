@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Dams
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/maximtest"
+    password: 12345
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
