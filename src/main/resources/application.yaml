@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: work
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+logging:
+  enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  name: work
+  version: 1.0.0
