@@ -5,6 +5,7 @@ import control.work.infrastructure.persistence.repository.NoteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,5 +26,16 @@ public class NoteService {
     public NoteEntity getById(UUID id){
         return noteRepository.getById(id);
     }
-
+    public List<NoteEntity> getByTitle(String title){
+        if (title != null && !title.isBlank()){
+            return noteRepository.getByTitle(title);
+        }
+        return null;
+    }
+    public List<NoteEntity> getByContent(String content){
+        if (content != null && !content.isBlank()){
+            return noteRepository.getByTitle(content);
+        }
+        return null;
+    }
 }
