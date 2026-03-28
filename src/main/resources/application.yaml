@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: FISD_CW
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fisd_cw
+    username: postgres
+    password: 010909
+    driver-class-name: org.postgresql.Driver
