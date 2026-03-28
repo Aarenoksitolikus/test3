@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Kr
+
+  datasource:
+    username: "postgres"
+    password: "postgres"
+    url: "jdbc:postgresql://localhost:5432/kr"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
