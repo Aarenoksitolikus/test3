@@ -28,13 +28,13 @@ public class NoteEntity {
     String content;
 
 
-    @Column(name = "createdAt", nullable = false)
+    @Column(name = "createdat", nullable = false)
     LocalDateTime creationAt;
 
-    @Column(name = "updatedAt")
+    @Column(name = "updatedat")
     LocalDateTime updatedAt;
 
-    @Column(name = "deletedAt")
+    @Column(name = "deletedat")
     LocalDateTime deletedAt;
 
     @PreUpdate

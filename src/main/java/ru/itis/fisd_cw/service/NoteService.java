@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class NoteService {
-    private NoteRepository noteRepository;
+    private final NoteRepository noteRepository;
 
     //GET TITLE
     public List<NoteEntity> getByTitle(String title) {
